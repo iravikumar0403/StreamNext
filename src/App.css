@@ -1,0 +1,11 @@
+body{
+    background-color: #121212;
+    color: #fff;
+}
+.MuiBottomNavigationAction-root.Mui-selected{
+  color:red
+}
+
+.App{
+    margin-top: 70px;
+}
