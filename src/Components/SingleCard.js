@@ -42,6 +42,7 @@ const SingleCard = ({
   first_air_date,
   release_date,
   vote_average,
+  type,
 }) => {
   const classes = useStyles();
   return (

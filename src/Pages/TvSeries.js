@@ -26,7 +26,7 @@ const TvSeries = () => {
       </Typography>
       <Grid container spacing={2} justify="center">
         {loading ? (
-          <CircularProgress />
+          <CircularProgress color="secondary" />
         ) : (
           data.results.map((item) => <SingleCard key={item.id} {...item} />)
         )}

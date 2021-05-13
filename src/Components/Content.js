@@ -4,7 +4,7 @@ import { Route, Switch } from "react-router";
 import Trending from "../Pages/Trending";
 import Movies from "../Pages/Movies";
 import TvSeries from "../Pages/TvSeries";
-import Search from "../Pages/Search";
+import SearchPage from "../Pages/SearchPage";
 
 const useStyles = makeStyles({
   wrapper: {
@@ -26,7 +26,7 @@ const Content = () => {
           <TvSeries />
         </Route>
         <Route path="/search">
-          <Search />
+          <SearchPage />
         </Route>
       </Switch>
     </Container>

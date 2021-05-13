@@ -6,7 +6,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import React from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Header = () => {
+  const history = useHistory();
   const classes = useStyles();
   return (
     <div className={classes.root}>
@@ -38,9 +39,13 @@ const Header = () => {
           <Typography variant="h6" className={classes.title}>
             StreamNext
           </Typography>
-          <Link to="/search" className={classes.btn}>
-            <Button color="inherit">Search</Button>
-          </Link>
+          <Button
+            onClick={() => history.push("/search")}
+            color="inherit"
+            className={classes.btn}
+          >
+            Search
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

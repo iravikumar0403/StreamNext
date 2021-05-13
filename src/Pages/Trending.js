@@ -14,21 +14,18 @@ const Trending = () => {
       )
       .then((res) => {
         setData(res.data);
-        setTimeout(() => {
-          setLoading(false);
-        }, 3000);
+        setLoading(false);
       });
-    return () => {};
   }, []);
 
   return (
     <div>
-      <Typography variant="h4" align="justify" gutterBottom>
-        <span>Trending Today</span>
+      <Typography variant="h4" align="center" gutterBottom>
+        <span>TRENDING TODAY</span>
       </Typography>
       <Grid container spacing={2} justify="center">
         {loading ? (
-          <CircularProgress />
+          <CircularProgress color="secondary" />
         ) : (
           data.results.map((item) => <SingleCard key={item.id} {...item} />)
         )}

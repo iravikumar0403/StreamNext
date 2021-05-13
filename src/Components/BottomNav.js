@@ -8,14 +8,14 @@ import { useHistory } from "react-router";
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor: theme.palette.primary.main,
     position: "fixed",
     bottom: -2,
     zIndex: "100",
   },
   icons: {
     color: "white",
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor: theme.palette.primary.main,
   },
 }));
 const BottomNav = () => {
@@ -35,10 +35,6 @@ const BottomNav = () => {
       }
       case 2: {
         history.push("/tvseries");
-        break;
-      }
-      case 3: {
-        history.push("/search");
         break;
       }
       default: {
