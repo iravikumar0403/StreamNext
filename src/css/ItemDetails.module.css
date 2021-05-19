@@ -1,0 +1,61 @@
+.detailsWrapper {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: row;
+}
+
+.thumbnail {
+    width: 350px;
+    display: block;
+    margin: 20px auto;
+    padding: 10px 2px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px #bebebe;
+    background-color: #000
+}
+
+.content {
+    margin: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.overview {
+    color: #ffffffb3;
+    border: 1px solid grey;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.watchProvidersWrapper {
+    border: 1px solid grey;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.cardsGrid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.streamingCard {
+    width: 4rem;
+    background-color: #3d3d3d;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.streamingCard>img {
+    width: calc(100% - 6px);
+    border-radius: 10px;
+    padding: 4px;
+}
+
+@media (max-width:768px) {
+    .detailsWrapper {
+        flex-direction: column;
+    }
+}

@@ -1,5 +1,5 @@
 import { createMuiTheme } from "@material-ui/core";
-import { teal } from "@material-ui/core/colors";
+import { red, teal } from "@material-ui/core/colors";
 
 const theme = createMuiTheme({
   palette: {
@@ -8,6 +8,7 @@ const theme = createMuiTheme({
       main: "#202124",
     },
     secondary: teal,
+    error: red,
     text: {
       primary: "#FFF",
       secondary: "#FFF",

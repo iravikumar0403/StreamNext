@@ -5,6 +5,7 @@ import Trending from "../Pages/Trending";
 import Movies from "../Pages/Movies";
 import TvSeries from "../Pages/TvSeries";
 import SearchPage from "../Pages/SearchPage";
+import ItemDetails from "../Pages/ItemDetails";
 
 const useStyles = makeStyles({
   wrapper: {
@@ -19,6 +20,9 @@ const Content = () => {
         <Route exact path="/">
           <Trending />
         </Route>
+        <Route path="/trending">
+          <Trending />
+        </Route>
         <Route path="/movies">
           <Movies />
         </Route>
@@ -27,6 +31,9 @@ const Content = () => {
         </Route>
         <Route path="/search">
           <SearchPage />
+        </Route>
+        <Route path="/:type/:id">
+          <ItemDetails />
         </Route>
       </Switch>
     </Container>

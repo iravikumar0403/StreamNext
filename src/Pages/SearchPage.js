@@ -46,7 +46,6 @@ const SearchPage = () => {
 
   const searchHandler = (e) => {
     e.preventDefault();
-    console.log("loading");
     setError(false);
     setLoading(true);
     axios
@@ -55,7 +54,6 @@ const SearchPage = () => {
       )
       .then((res) => {
         setData(res.data);
-        console.log(res);
       })
       .catch((error) => {
         setError(true);
@@ -98,11 +96,7 @@ const SearchPage = () => {
             <MenuItem value={"tv"}>TV Series</MenuItem>
           </Select>
         </FormControl>
-        <Button
-          backgroundColor="secondary"
-          className={styles.btn}
-          type="submit"
-        >
+        <Button className={styles.btn} type="submit">
           <Search />
         </Button>
       </form>
