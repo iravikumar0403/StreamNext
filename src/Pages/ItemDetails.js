@@ -140,22 +140,24 @@ const ItemDetails = () => {
                 ))}
               </Typography>
             </div>
-            <div className={styles.watchProvidersWrapper}>
-              <Typography>Streaming Now</Typography>
-              <div className={styles.cardsGrid}>
-                {watchProviders?.map((provider) => {
-                  return (
-                    <div className={styles.streamingCard}>
-                      <img
-                        src={`${img_300}${provider.logo_path}`}
-                        alt={provider.provider_name}
-                      />
-                      <Typography>{provider.provider_name}</Typography>
-                    </div>
-                  );
-                })}
+            {watchProviders && (
+              <div className={styles.watchProvidersWrapper}>
+                <Typography>Streaming Now</Typography>
+                <div className={styles.cardsGrid}>
+                  {watchProviders?.map((provider) => {
+                    return (
+                      <div className={styles.streamingCard}>
+                        <img
+                          src={`${img_300}${provider.logo_path}`}
+                          alt={provider.provider_name}
+                        />
+                        <Typography>{provider.provider_name}</Typography>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            )}
             <a
               href={`https://www.youtube.com/watch?v=${videoData[0]?.key}`}
               target="_blank"
