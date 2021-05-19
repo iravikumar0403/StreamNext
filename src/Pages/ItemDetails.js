@@ -143,7 +143,7 @@ const ItemDetails = () => {
             <div className={styles.watchProvidersWrapper}>
               <Typography>Streaming Now</Typography>
               <div className={styles.cardsGrid}>
-                {watchProviders.map((provider) => {
+                {watchProviders?.map((provider) => {
                   return (
                     <div className={styles.streamingCard}>
                       <img
