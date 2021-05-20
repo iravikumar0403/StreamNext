@@ -50,9 +50,9 @@ const ItemDetails = () => {
       .then((res) => {
         setData(res.data);
       })
-      .catch((error) => {
-        setError(true);
-        console.log(error);
+      .catch((err) => {
+        const error = JSON.parse(JSON.stringify(err));
+        setError(error.message);
       })
       .finally(() => {
         setIsLoading(false);
@@ -68,9 +68,9 @@ const ItemDetails = () => {
       .then((res) => {
         setVideoData(res.data.results);
       })
-      .catch((error) => {
-        setError(true);
-        console.log(error);
+      .catch((err) => {
+        const error = JSON.parse(JSON.stringify(err));
+        setError(error.message);
       })
       .finally(() => {
         setIsLoading(false);
@@ -84,16 +84,20 @@ const ItemDetails = () => {
         `https://api.themoviedb.org/3/${type}/${id}/watch/providers?api_key=${process.env.REACT_APP_API_KEY}`
       )
       .then((res) => {
-        setWatchProviders(res.data.results["IN"].flatrate);
-        console.log(res.data.results["IN"]?.flatrate);
+        setWatchProviders(res.data.results["IN"]?.flatrate);
+        console.log(res.data.results["IN"].flatrate);
       })
-      .catch((error) => {
-        setError(true);
-        console.log(error);
+      .catch((err) => {
+        const error = JSON.parse(JSON.stringify(err));
+        setError(error.message);
       })
       .finally(() => {
         setIsLoading(false);
       });
+
+    return () => {
+      setWatchProviders([]);
+    };
   }, [type, id]);
 
   const { name, poster_path, title, overview, genres, tagline } = {
@@ -105,7 +109,7 @@ const ItemDetails = () => {
       {isLoading ? (
         <CircularProgress color="secondary" />
       ) : error ? (
-        <ErrorMsg />
+        <ErrorMsg msg={error} />
       ) : (
         <>
           <img
@@ -146,7 +150,10 @@ const ItemDetails = () => {
                 <div className={styles.cardsGrid}>
                   {watchProviders?.map((provider) => {
                     return (
-                      <div className={styles.streamingCard}>
+                      <div
+                        className={styles.streamingCard}
+                        key={provider.provider_id}
+                      >
                         <img
                           src={`${img_300}${provider.logo_path}`}
                           alt={provider.provider_name}

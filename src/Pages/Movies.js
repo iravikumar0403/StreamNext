@@ -15,12 +15,11 @@ const Movies = () => {
         `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.REACT_APP_API_KEY}`
       )
       .then((res) => {
-        console.log(res.data);
         setData(res.data);
       })
-      .catch((error) => {
-        setError(true);
-        console.log(error);
+      .catch((err) => {
+        const error = JSON.parse(JSON.stringify(err));
+        setError(error.message);
       })
       .finally(() => {
         setIsLoading(false);
@@ -30,7 +29,7 @@ const Movies = () => {
   return (
     <div>
       {error ? (
-        <ErrorMsg />
+        <ErrorMsg msg={error} />
       ) : (
         <>
           <Typography variant="h4" align="center" gutterBottom>

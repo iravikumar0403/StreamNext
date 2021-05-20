@@ -12,6 +12,7 @@ import {
 import { Search } from "@material-ui/icons";
 import axios from "axios";
 import React, { useState } from "react";
+import ErrorMsg from "../Components/ErrorMsg";
 import SingleCard from "../Components/SingleCard";
 
 const SearchPage = () => {
@@ -55,9 +56,9 @@ const SearchPage = () => {
       .then((res) => {
         setData(res.data);
       })
-      .catch((error) => {
-        setError(true);
-        console.log(error);
+      .catch((err) => {
+        const error = JSON.parse(JSON.stringify(err));
+        setError(error.message);
       })
       .finally(() => {
         setLoading(false);
@@ -101,12 +102,10 @@ const SearchPage = () => {
         </Button>
       </form>
       <Grid container spacing={2} justify="center">
-        {loading ? (
+        {error ? (
+          <ErrorMsg msg={error} />
+        ) : loading ? (
           <CircularProgress color="secondary" />
-        ) : error ? (
-          <h1 style={{ color: "#fff" }}>
-            Something Went Wrong, Try after sometime
-          </h1>
         ) : (
           data.results?.map((item) => {
             item = { ...item, media_type: type };

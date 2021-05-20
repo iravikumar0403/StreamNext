@@ -19,15 +19,15 @@ const TvSeries = () => {
         setLoading(false);
       })
       .catch((err) => {
-        setError(true);
-        console.log(err);
+        const error = JSON.parse(JSON.stringify(err));
+        setError(error.message);
       });
   }, []);
 
   return (
     <div>
       {error ? (
-        <ErrorMsg />
+        <ErrorMsg msg={error} />
       ) : (
         <>
           <Typography variant="h4" align="center" gutterBottom>
