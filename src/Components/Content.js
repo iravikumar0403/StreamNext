@@ -20,9 +20,6 @@ const Content = () => {
         <Route exact path="/">
           <Trending />
         </Route>
-        <Route path="/trending">
-          <Trending />
-        </Route>
         <Route path="/movies">
           <Movies />
         </Route>

@@ -26,7 +26,7 @@ const BottomNav = () => {
   useEffect(() => {
     switch (value) {
       case 0: {
-        history.push("/trending");
+        history.push("/");
         break;
       }
       case 1: {
