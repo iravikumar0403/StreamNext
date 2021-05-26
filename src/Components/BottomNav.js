@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
@@ -19,53 +19,27 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const BottomNav = () => {
-  let history = useHistory();
+  const history = useHistory();
   const classes = useStyles();
-  const [value, setValue] = useState(0);
-
-  useEffect(() => {
-    switch (value) {
-      case 0: {
-        history.push("/");
-        break;
-      }
-      case 1: {
-        history.push("/movies");
-        break;
-      }
-      case 2: {
-        history.push("/tvseries");
-        break;
-      }
-      default: {
-        history.push("/");
-      }
-    }
-    return () => {};
-  }, [value, history]);
 
   return (
-    <BottomNavigation
-      value={value}
-      onChange={(event, newValue) => {
-        setValue(newValue);
-      }}
-      showLabels
-      className={classes.root}
-    >
+    <BottomNavigation showLabels className={classes.root}>
       <BottomNavigationAction
+        onClick={() => history.push("/")}
         style={{ color: "#fff" }}
         className={classes.icons}
         label="Trending"
         icon={<Whatshot />}
       />
       <BottomNavigationAction
+        onClick={() => history.push("/movies")}
         style={{ color: "#fff" }}
         className={classes.icons}
         label="Movies"
         icon={<Movie />}
       />
       <BottomNavigationAction
+        onClick={() => history.push("/tvseries")}
         style={{ color: "#fff" }}
         className={classes.icons}
         label="TV Series"
